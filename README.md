@@ -7,6 +7,7 @@ But I have not seen anywhere else how to do drag and drop to a table or grid, si
 
 The full source code is available at https://github.com/angularexample/angular-drag-and-drop-to-grid.
 
+![drag-and-drop-to-grid Screenshot](https://github.com/angularexample/angular-drag-and-drop-to-grid/blob/master/src/assets/images/drag-and-drop-to-grid.png)
 
 # Table of Contents
 
