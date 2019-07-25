@@ -1,0 +1,48 @@
+{
+  "cameras": [
+    {
+      "id": 1,
+      "deviceNo": "XGY792"
+    },
+    {
+      "id": 2,
+      "deviceNo": "XGY487"
+    },
+    {
+      "id": 3,
+      "deviceNo": "XGY331"
+    },
+    {
+      "id": 4,
+      "deviceNo": "XGY992"
+    },
+    {
+      "id": 5,
+      "deviceNo": "XGY267"
+    },
+    {
+      "id": 6,
+      "deviceNo": "LPT499"
+    },
+    {
+      "id": 7,
+      "deviceNo": "LPT557"
+    },
+    {
+      "id": 8,
+      "deviceNo": "LPT734"
+    },
+    {
+      "id": 9,
+      "deviceNo": "LPT781"
+    },
+    {
+      "id": 10,
+      "deviceNo": "DDQ855"
+    },
+    {
+      "id": 11,
+      "deviceNo": "DDQ474"
+    }
+  ]
+}

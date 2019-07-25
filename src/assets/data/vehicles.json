@@ -1,0 +1,48 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "Blue Car"
+    },
+    {
+      "id": 2,
+      "name": "Red Car"
+    },
+    {
+      "id": 3,
+      "name": "Green Car"
+    },
+    {
+      "id": 4,
+      "name": "Yellow Car"
+    },
+    {
+      "id": 5,
+      "name": "White Car"
+    },
+    {
+      "id": 6,
+      "name": "Black Car"
+    },
+    {
+      "id": 7,
+      "name": "Orange Car"
+    },
+    {
+      "id": 8,
+      "name": "Purple Car"
+    },
+    {
+      "id": 9,
+      "name": "Gray Car"
+    },
+    {
+      "id": 10,
+      "name": "Silver Car"
+    },
+    {
+      "id": 11,
+      "name": "Gold Car"
+    }
+  ]
+}

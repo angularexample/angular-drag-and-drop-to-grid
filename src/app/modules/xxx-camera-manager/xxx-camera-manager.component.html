@@ -1,0 +1,48 @@
+<div class="xxx-page-header">
+  <div class="xxx-page-title">Camera Manager</div>
+</div>
+
+<div class="xxx-page-content">
+
+  <div *ngIf="isLoading" class="xxx-spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading && isError" class="xxx-loading-error-label">
+    An Error Occurred During Loading
+  </div>
+
+  <div *ngIf="!isLoading && !isError" class="xxx-page-body">
+
+    <mat-card class="xxx-camera-list-container">
+      <mat-card-title class="xxx-list-title">Cameras</mat-card-title>
+      <div *ngIf="isAvailableCameras" cdkDropList (cdkDropListDropped)="drop($event)"
+           [cdkDropListConnectedTo]="[vehicleList]" id="cameralist">
+        <div cdkDrag [cdkDragData]="camera" class="xxx-camera-item"
+             *ngFor="let camera of availableCameras">{{camera.deviceNo}}</div>
+      </div>
+      <div *ngIf="!isAvailableCameras">
+        No Cameras Available
+      </div>
+    </mat-card>
+
+    <mat-card class="xxx-vehicle-list-container">
+      <mat-card-title class="xxx-list-title">Vehicles</mat-card-title>
+      <div *ngIf="isVehicles" cdkDropList #vehicleList="cdkDropList">
+        <div id="vehicle{{vehicle.id}}" (mouseup)="onMouseupVehicle($event)" *ngFor="let vehicle of vehicles" class="xxx-vehicle-list-row">
+          <div class="xxx-vehicle-list-cell-name">{{vehicle.name}}</div>
+          <div class="xxx-vehicle-list-cell-camera">{{getCameraDeviceAssigned(vehicle.id)}}</div>
+          <div *ngIf="isCameraAssigned(vehicle.id)" class="xxx-vehicle-list-cell-delete-camera">
+            <button (click)="unassignCamera(vehicle.id)" aria-label="Remove Camera">
+              <mat-icon class="xxx-camera-delete-icon">close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!isVehicles" class="xxx-empty-data-label">
+        No Vehicles Available
+      </div>
+    </mat-card>
+
+  </div>
+</div>

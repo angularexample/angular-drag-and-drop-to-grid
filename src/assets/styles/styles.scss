@@ -1,0 +1,26 @@
+/* master scss file, global styles and imports of other app scope scss files */
+
+/* global font */
+body {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* angular material */
+@import "vendor/angular-material";
+
+/* angular material menu and icon setup */
+@import "vendor/mat-icon";
+
+/* responsive css */
+@import "partials/media-variables";
+
+/* global colors */
+@import "partials/colors";
+
+/* for xxx-alert */
+@import "partials/alert";
+
+/* for material icons */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");

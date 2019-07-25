@@ -1,0 +1,39 @@
+{
+  "cameraAssignments": [
+    {
+      "id": 1,
+      "cameraId": 4,
+      "vehicleId": 1,
+      "dateCreated": "07/01/2019",
+      "deleted": false
+    },
+    {
+      "id": 2,
+      "cameraId": 7,
+      "vehicleId": 3,
+      "dateCreated": "07/02/2019",
+      "deleted": false
+    },
+    {
+      "id": 3,
+      "cameraId": 9,
+      "vehicleId": 4,
+      "dateCreated": "07/03/2019",
+      "deleted": false
+    },
+    {
+      "id": 4,
+      "cameraId": 2,
+      "vehicleId": 11,
+      "dateCreated": "07/04/2019",
+      "deleted": true
+    },
+    {
+      "id": 5,
+      "cameraId": 1,
+      "vehicleId": 10,
+      "dateCreated": "07/05/2019",
+      "deleted": false
+    }
+  ]
+}

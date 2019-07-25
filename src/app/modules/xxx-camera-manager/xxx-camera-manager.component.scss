@@ -1,0 +1,71 @@
+.xxx-camera-delete-icon {
+  font-size: 1rem;
+}
+
+.xxx-camera-item {
+  cursor: pointer;
+}
+
+.xxx-camera-list-container {
+  width: 25vw;
+}
+
+.xxx-list-title {
+  background-color: aliceblue;
+  font-size: 1rem;
+  padding: .5rem;
+}
+
+.xxx-page-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+}
+
+.xxx-page-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 2.5rem;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+}
+
+.xxx-page-title {
+  font-size: 1.2rem;
+}
+
+.xxx-vehicle-list-cell-camera {
+  width: 10rem;
+}
+
+.xxx-vehicle-list-cell-delete-camera {
+  width: 1rem;
+}
+
+xxx-vehicle-list-cell-delete-camera button{
+  height: 12px!important;
+  width: 12px!important;
+}
+
+xxx-vehicle-list-cell-delete-camera mat-icon{
+  font-size: 12px;
+}
+
+.xxx-vehicle-list-cell-name {
+  width: 10rem;
+}
+
+.xxx-vehicle-list-container {
+  margin-left: 2rem;
+  width: 40vw;
+}
+
+.xxx-vehicle-list-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
