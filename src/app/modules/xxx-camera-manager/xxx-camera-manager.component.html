@@ -16,10 +16,14 @@
 
     <mat-card class="xxx-camera-list-container">
       <mat-card-title class="xxx-list-title">Cameras</mat-card-title>
-      <div *ngIf="isAvailableCameras" cdkDropList (cdkDropListDropped)="drop($event)"
-           [cdkDropListConnectedTo]="[vehicleList]" id="cameralist">
-        <div cdkDrag [cdkDragData]="camera" class="xxx-camera-item"
-             *ngFor="let camera of availableCameras">{{camera.deviceNo}}</div>
+      <div (cdkDropListDropped)="drop($event)" *ngIf="isAvailableCameras" cdkDropList>
+        <div *ngFor="let camera of availableCameras" [cdkDragData]="camera" cdkDrag
+             class="xxx-camera-list-row">
+          <div class="xxx-camera-cell-icon">
+            <mat-icon>videocam</mat-icon>
+          </div>
+          <div class="xxx-camera-cell-device">{{camera.deviceNo}}</div>
+        </div>
       </div>
       <div *ngIf="!isAvailableCameras">
         No Cameras Available
@@ -28,14 +32,23 @@
 
     <mat-card class="xxx-vehicle-list-container">
       <mat-card-title class="xxx-list-title">Vehicles</mat-card-title>
-      <div *ngIf="isVehicles" cdkDropList #vehicleList="cdkDropList">
-        <div id="vehicle{{vehicle.id}}" (mouseup)="onMouseupVehicle($event)" *ngFor="let vehicle of vehicles" class="xxx-vehicle-list-row">
+      <div *ngIf="isVehicles" cdkDropList>
+        <div (mouseup)="onMouseupVehicle($event)" *ngFor="let vehicle of vehicles" class="xxx-vehicle-list-row"
+             id="vehicle{{vehicle.id}}">
+          <div class="xxx-vehicle-cell-icon">
+            <mat-icon>directions_car</mat-icon>
+          </div>
           <div class="xxx-vehicle-list-cell-name">{{vehicle.name}}</div>
-          <div class="xxx-vehicle-list-cell-camera">{{getCameraDeviceAssigned(vehicle.id)}}</div>
-          <div *ngIf="isCameraAssigned(vehicle.id)" class="xxx-vehicle-list-cell-delete-camera">
-            <button (click)="unassignCamera(vehicle.id)" aria-label="Remove Camera">
-              <mat-icon class="xxx-camera-delete-icon">close</mat-icon>
-            </button>
+          <div *ngIf="isCameraAssigned(vehicle.id)" class="xxx-vehicle-list-camera-container">
+            <div class="xxx-camera-cell-icon">
+              <mat-icon>videocam</mat-icon>
+            </div>
+            <div class="xxx-vehicle-list-cell-camera-device">{{getCameraDeviceAssigned(vehicle.id)}}</div>
+            <div class="xxx-vehicle-list-cell-delete-camera">
+              <button (click)="unassignCamera(vehicle.id)" title="Remove Camera">
+                <mat-icon class="xxx-camera-delete-icon">close</mat-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>

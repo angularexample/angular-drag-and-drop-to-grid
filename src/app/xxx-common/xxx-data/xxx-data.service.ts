@@ -9,8 +9,8 @@ export class XxxDataService {
   getData(url: string): Promise<any> {
     let data: Promise<any>;
     data = this.httpClient.get(url)
-        .toPromise()
-        .then(this.onSuccessGetData, this.onErrorGetData);
+      .toPromise()
+      .then(this.onSuccessGetData, this.onErrorGetData);
     return data;
   }
 

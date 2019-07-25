@@ -1,5 +1,9 @@
+.xxx-camera-cell-device {
+  margin-left: .5rem;
+}
+
 .xxx-camera-delete-icon {
-  font-size: 1rem;
+  font-size: .5rem;
 }
 
 .xxx-camera-item {
@@ -7,7 +11,14 @@
 }
 
 .xxx-camera-list-container {
-  width: 25vw;
+}
+
+.xxx-camera-list-row {
+  align-items: center;
+  cursor: grab;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .xxx-list-title {
@@ -38,34 +49,46 @@
   font-size: 1.2rem;
 }
 
-.xxx-vehicle-list-cell-camera {
-  width: 10rem;
+.xxx-vehicle-list-camera-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.xxx-vehicle-list-cell-camera-device {
+  margin-left: .5rem;
+  width: 6rem;
 }
 
 .xxx-vehicle-list-cell-delete-camera {
   width: 1rem;
 }
 
-xxx-vehicle-list-cell-delete-camera button{
-  height: 12px!important;
-  width: 12px!important;
-}
-
-xxx-vehicle-list-cell-delete-camera mat-icon{
-  font-size: 12px;
+.xxx-vehicle-list-cell-delete-camera button {
+  background-color: lightgray;
+  cursor: pointer;
 }
 
 .xxx-vehicle-list-cell-name {
-  width: 10rem;
+  margin-left: .5rem;
+  width: 6rem;
 }
 
 .xxx-vehicle-list-container {
   margin-left: 2rem;
-  width: 40vw;
 }
 
 .xxx-vehicle-list-row {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: left;
+  margin-right: 1rem;
+}
+
+mat-icon.xxx-camera-delete-icon {
+  font-size: 12px;
+  height: 12px;
+  width: 12px;
 }
