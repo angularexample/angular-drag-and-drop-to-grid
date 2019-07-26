@@ -64,6 +64,16 @@ export class XxxCameraManagerComponent implements OnInit {
         id = event.target.parentElement.id.substr(7);
       }
     }
+    if (id.length === 0) {
+      if (event.path && Array.isArray(event.path)) {
+        const found = event.path.find(item => {
+          return ((typeof item.id === 'string') && item.id.includes('vehicle'));
+        });
+        if (typeof found !== 'undefined') {
+          id = found.id.substr(7);
+        }
+      }
+    }
     if (id.length > 0) {
       vehicleId = parseInt(id, 10);
     }
