@@ -94,11 +94,8 @@ export class XxxCameraManagerComponent implements OnInit {
   }
 
   onMouseupVehicle(event: any) {
-    let vehicleId: number = null;
-    if ((event.target.parentElement.id) && (event.target.parentElement.id.substr(0, 7) === 'vehicle')) {
-      vehicleId = parseInt(event.target.parentElement.id.substr(7), 10);
-    }
-    if (!isNaN(vehicleId)) {
+    const vehicleId: number = this.getVehicleIdFromEvent(event);
+    if (!isNaN(vehicleId) && (vehicleId !== null)) {
       const currentTime = (new Date()).getTime();
       if (this.droppedCamera) {
         if ((currentTime - this.droppedCamera.time) < 100) {
@@ -109,7 +106,28 @@ export class XxxCameraManagerComponent implements OnInit {
           this.changeDetectorRef.detectChanges();
         }
       }
+    } else {
+      console.log('no vehicle id found');
     }
+  }
+
+  private getVehicleIdFromEvent(event: any): number {
+    let vehicleId: number = null;
+    let id = '';
+    // try the target element first
+    if (event.target.id && event.target.id.includes('vehicle')) {
+      id = event.target.id.substr(7);
+    } else {
+      // try the parent element next
+      if ((event.target.parentElement.id) && event.target.parentElement.id.includes('vehicle')) {
+        id = event.target.parentElement.id.substr(7);
+      }
+    }
+    if (id.length > 0) {
+      vehicleId = parseInt(id, 10);
+    }
+    // we can also try to parse the event path if we need to
+    return vehicleId;
   }
 
   private loadData() {
