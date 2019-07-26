@@ -19,6 +19,7 @@ export interface XxxDroppedCameraInterface {
 })
 
 export class XxxCameraManagerComponent implements OnInit {
+
   availableCameras: XxxCameraInterface[] = [];
   droppedCamera: XxxDroppedCameraInterface = null;
   isAvailableCameras = false;
@@ -35,6 +36,38 @@ export class XxxCameraManagerComponent implements OnInit {
     private changeDetectorRef: ChangeDetectorRef,
     private xxxDataService: XxxDataService
   ) {
+  }
+
+  private static getTodaysDate(): string {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const yyyy = today.getFullYear().toString();
+    let dd = day.toString();
+    if (day < 10) {
+      dd = '0' + dd;
+    }
+    let mm = month.toString();
+    if (month < 10) {
+      mm = '0' + mm;
+    }
+    return mm + '/' + dd + '/' + yyyy;
+  }
+
+  private static getVehicleIdFromEvent(event: any): number {
+    let vehicleId: number = null;
+    let id = '';
+    if (event.target.id && event.target.id.includes('vehicle')) {
+      id = event.target.id.substr(7);
+    } else {
+      if ((event.target.parentElement.id) && event.target.parentElement.id.includes('vehicle')) {
+        id = event.target.parentElement.id.substr(7);
+      }
+    }
+    if (id.length > 0) {
+      vehicleId = parseInt(id, 10);
+    }
+    return vehicleId;
   }
 
   ngOnInit() {
@@ -94,7 +127,7 @@ export class XxxCameraManagerComponent implements OnInit {
   }
 
   onMouseupVehicle(event: any) {
-    const vehicleId: number = this.getVehicleIdFromEvent(event);
+    const vehicleId: number = XxxCameraManagerComponent.getVehicleIdFromEvent(event);
     if (!isNaN(vehicleId) && (vehicleId !== null)) {
       const currentTime = (new Date()).getTime();
       if (this.droppedCamera) {
@@ -107,22 +140,6 @@ export class XxxCameraManagerComponent implements OnInit {
         }
       }
     }
-  }
-
-  private getVehicleIdFromEvent(event: any): number {
-    let vehicleId: number = null;
-    let id = '';
-    if (event.target.id && event.target.id.includes('vehicle')) {
-      id = event.target.id.substr(7);
-    } else {
-      if ((event.target.parentElement.id) && event.target.parentElement.id.includes('vehicle')) {
-        id = event.target.parentElement.id.substr(7);
-      }
-    }
-    if (id.length > 0) {
-      vehicleId = parseInt(id, 10);
-    }
-    return vehicleId;
   }
 
   private loadData() {
@@ -139,7 +156,7 @@ export class XxxCameraManagerComponent implements OnInit {
       this.xxxDataService.getData(environment.url.vehicles)
     ])
       .then((result) => this.onSuccessLoadData(result),
-        result => this.onErrorLoadData(result));
+        () => this.onErrorLoadData());
   }
 
   private onSuccessLoadData(result: any[]) {
@@ -151,7 +168,7 @@ export class XxxCameraManagerComponent implements OnInit {
     this.changeDetectorRef.detectChanges();
   }
 
-  private onErrorLoadData(result: any) {
+  private onErrorLoadData() {
     this.isError = true;
     this.isLoading = false;
     this.changeDetectorRef.detectChanges();
@@ -224,12 +241,12 @@ export class XxxCameraManagerComponent implements OnInit {
   }
 
   private insertCameraAssignment(cameraId: number, vehicleId: number) {
-    // TODO add call to data service to do this on backend
+    // here is where to add call to data service to do this on backend
     this.cameraAssignments.push({
       id: this.getNewId(this.cameraAssignments),
       cameraId: cameraId,
       vehicleId: vehicleId,
-      dateCreated: this.getTodaysDate(),
+      dateCreated: XxxCameraManagerComponent.getTodaysDate(),
       deleted: false
     });
   }
@@ -246,21 +263,5 @@ export class XxxCameraManagerComponent implements OnInit {
       result = maxValue;
     }
     return result;
-  }
-
-  private getTodaysDate(): string {
-    const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth() + 1;
-    const yyyy = today.getFullYear().toString();
-    let dd = day.toString();
-    if (day < 10) {
-      dd = '0' + dd;
-    }
-    let mm = month.toString();
-    if (month < 10) {
-      mm = '0' + mm;
-    }
-    return mm + '/' + dd + '/' + yyyy;
   }
 }
