@@ -1,9 +1,11 @@
 # angular-drag-and-drop-to-grid
-Angular 8 example application to show how to do drag and drop from a list to a grid.
+Angular Drag and Drop to Grid is an Angular 8 example application to show how to do drag and drop from a list to a grid.
 
 The Angular docs show how to do drag and drop from one array list to another array list that has the same structure.
  
-But I have not seen anywhere else how to do drag and drop to a table or grid, since the drop destination has a different and more complex structure.
+But... I have not seen anywhere else how to do drag and drop to a table or grid, since the drop destination has a different and more complex structure.
+
+Angular Drag and Drop to Grid (running example): https://angularexample.github.io/angular-drag-and-drop-to-grid/
 
 The full source code is available at https://github.com/angularexample/angular-drag-and-drop-to-grid.
 
