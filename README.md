@@ -5,11 +5,19 @@ The Angular docs show how to do drag and drop from one array list to another arr
  
 But... I have not seen anywhere else how to do **drag and drop to a table or grid**, since the drop destination has a different and more complex structure.
 
-Angular Drag and Drop to Grid (running example): [https://angularexample.github.io/angular-drag-and-drop-to-grid](https://angularexample.github.io/angular-drag-and-drop-to-grid)
+Created by **AngularExample** [https://github.com/angularexample](https://github.com/angularexample)
 
-The full source code is available at [https://github.com/angularexample/angular-drag-and-drop-to-grid](https://github.com/angularexample/angular-drag-and-drop-to-grid)
+The full source code is available at: [https://github.com/angularexample/angular-drag-and-drop-to-grid](https://github.com/angularexample/angular-drag-and-drop-to-grid)
 
-![drag-and-drop-to-grid Screenshot](https://github.com/angularexample/angular-drag-and-drop-to-grid/blob/master/src/assets/images/drag-and-drop-to-grid.png)
+## Running Example
+
+Click for running example:
+
+[angular-drag-and-drop-to-grid](https://angularexample.github.io/angular-drag-and-drop-to-grid)
+
+### Screen Shot
+
+![drag-and-drop-to-grid](https://github.com/angularexample/angular-drag-and-drop-to-grid/blob/master/src/assets/images/drag-and-drop-to-grid.png)
 
 ## Table of Contents
 - [About The Author](#about-the-author)
@@ -17,11 +25,14 @@ The full source code is available at [https://github.com/angularexample/angular-
   * [Prerequisites](#prerequisites)
   * [How To Install](#how-to-install)
   * [How To Run](#how-to-run)
-  * [How To Run Unit Tests](#how-to-run-unit-tests)
-  * [How To Run End To End Tests](#how-to-run-end-to-end-tests)
 - [Software Libraries Used](#software-libraries-used)
-
+- [Drag and Drop Requires Angular 7 and CDK](#drag-and-drop-requires-angular-7-and-cdk)
+- [Drop To A Custom Location](#drop-to-a-custom-location)
+  * [Combine MouseUp with Drop Events](#combine-mouseup-with-drop-events)
+  
+  
 ## About The Author
+
 **JC Lango** is a UI Architect and UI Developer for large scale web applications at several Fortune 500 companies.
 
 He is an expert in **Angular**, **Polymer**, and **React** and maintains these sites at Github:
@@ -36,12 +47,15 @@ JC may be available to work remote, and can be contacted at these links:
 * Email: [jobs@jclango.com](mailto:jobs@jclango.com)
 
 ## Project Setup
+
 ### Prerequisites
+
 You need to have Node and NPM installed on your PC.
 
 [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ### How To Install
+
 Download the source code using git or else download and unzip the zip file.
 
 Open a terminal window and go to the project root folder.
@@ -51,6 +65,7 @@ You need to have npm installed globally.
 Run `npm i` to install the required libraries.
 
 ### How To Run
+
 Run `ng serve` for a dev server.
 
 Navigate to `http://localhost:4200/`.
@@ -66,7 +81,7 @@ Angular Material 8
 Angular CDK 8
 ```
 
-## Drag and Drop Requires Angular 7+ and CDK
+## Drag and Drop Requires Angular 7 and CDK
 
 *Drag and Drop* was introduced beginning with *Angular 7*.
 
@@ -81,6 +96,7 @@ The instructions are at https://material.angular.io/guide/getting-started
 The Angular documentation on *Drag and Drop* is at https://material.angular.io/cdk/drag-drop
 
 ## Drop To A Custom Location
+
 The Angular documentation shows how to drag and drop from 2 array lists that have the same structure.
 
 But how do you drop to something different, like a to a table or a grid?
@@ -90,6 +106,7 @@ I could not find any documentation on how to do a complex or custom *Drag and Dr
 After hitting a brick wall on this, I decided to think outside the box.
 
 ### Combine MouseUp with Drop Events
+
 The solution shown here is to combine the normal *Drag and Drop* "dropped" event,
 with the browser's *mouseup* event.
 
@@ -101,13 +118,4 @@ so that you can know that the mouseup is happening immediately after the *droppe
 
 We also need to capture the data from the *dropped* event, so we know which item was dragged.
 
-#### The Drop Event Handler
-
-
-
-## About The Author
-The author is JC Lango, who has over 8 years experience as a UI Architect and Angular Expert, on large scale web applications for mostly Fortune 500 companies.
-
-JC may be available to work remote, and can be contacted at these links
- 
-LinkedIn: [www.linkedin.com/in/jclango](www.linkedin.com/in/jclango)
+---
